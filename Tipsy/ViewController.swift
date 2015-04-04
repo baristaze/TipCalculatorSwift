@@ -28,9 +28,29 @@ class ViewController: UIViewController {
         // get defaults
         let defaults = NSUserDefaults.standardUserDefaults();
         let defaultTipPercentageIndex = defaults.integerForKey("default_tip_percentage")
-        println(defaultTipPercentageIndex);
         tipSegmentController.selectedSegmentIndex = defaultTipPercentageIndex;
         
+        // get last session info
+        let lastBillTime = defaults.stringForKey("last_bill_time");
+        if(lastBillTime != nil){
+            
+            let dateText : String = lastBillTime!;
+            let dateFormatter = NSDateFormatter();
+            dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSSSxxx";
+            let date = dateFormatter.dateFromString(dateText);
+            let diff = NSDate().timeIntervalSinceDate(date!);
+            if(diff <= 600000.0){
+                
+                let lastBillAmount = defaults.doubleForKey("last_bill_amount");
+                billField.text = String(format: "%.2f", lastBillAmount);
+        
+                let tipIndex = defaults.integerForKey("last_tip_index");
+                tipSegmentController.selectedSegmentIndex = tipIndex;
+                
+                // update the UI
+                updateTipUI();
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,19 +59,38 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onEditingChanged(sender: AnyObject) {
-        
+        updateTipUI();
+        saveToFile();
+    }
+
+    @IBAction func onTap(sender: AnyObject) {
+        view.endEditing(true)
+    }
+    
+    func updateTipUI(){
         var tipPercentages = [0.18, 0.20, 0.22];
         var tipPercentage = tipPercentages[tipSegmentController.selectedSegmentIndex]
         var billAmount = (billField.text as NSString).doubleValue
         var tipAmount = billAmount * tipPercentage
         var totalAmount = billAmount + tipAmount
         tipLabel.text = String(format: "$%.2f", tipAmount)
-        totalLabel.text = String(format: "$%.2f", totalAmount)
-        
+        totalLabel.text = String(format: "$%.2f", totalAmount);
     }
     
-    @IBAction func onTap(sender: AnyObject) {
-        view.endEditing(true)
+    func saveToFile(){
+        
+        var billAmount = (billField.text as NSString).doubleValue;
+        if(billAmount > 0){
+            
+            let defaults = NSUserDefaults.standardUserDefaults();
+            defaults.setDouble(billAmount, forKey: "last_bill_amount");
+            defaults.setInteger(tipSegmentController.selectedSegmentIndex, forKey: "last_tip_index");
+            
+            let dateFormatter = NSDateFormatter();
+            dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSSSxxx";
+            let now = dateFormatter.stringFromDate(NSDate());
+            defaults.setObject(now, forKey: "last_bill_time");
+        }
     }
 }
 
