@@ -13,6 +13,8 @@
 		608D6A2D1ACF6B080019EC8A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 608D6A2C1ACF6B080019EC8A /* Images.xcassets */; };
 		608D6A301ACF6B080019EC8A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608D6A2E1ACF6B080019EC8A /* LaunchScreen.xib */; };
 		608D6A3C1ACF6B080019EC8A /* TipsyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608D6A3B1ACF6B080019EC8A /* TipsyTests.swift */; };
+		608D6A481ACF7EDA0019EC8A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 608D6A471ACF7EDA0019EC8A /* Settings.bundle */; };
+		608D6A4A1ACF888E0019EC8A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608D6A491ACF888E0019EC8A /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		608D6A351ACF6B080019EC8A /* TipsyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipsyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		608D6A3A1ACF6B080019EC8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		608D6A3B1ACF6B080019EC8A /* TipsyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsyTests.swift; sourceTree = "<group>"; };
+		608D6A471ACF7EDA0019EC8A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		608D6A491ACF888E0019EC8A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +83,12 @@
 			children = (
 				608D6A251ACF6B080019EC8A /* AppDelegate.swift */,
 				608D6A271ACF6B080019EC8A /* ViewController.swift */,
+				608D6A491ACF888E0019EC8A /* SettingsViewController.swift */,
 				608D6A291ACF6B080019EC8A /* Main.storyboard */,
 				608D6A2C1ACF6B080019EC8A /* Images.xcassets */,
 				608D6A2E1ACF6B080019EC8A /* LaunchScreen.xib */,
 				608D6A231ACF6B080019EC8A /* Supporting Files */,
+				608D6A471ACF7EDA0019EC8A /* Settings.bundle */,
 			);
 			path = Tipsy;
 			sourceTree = "<group>";
@@ -192,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				608D6A481ACF7EDA0019EC8A /* Settings.bundle in Resources */,
 				608D6A2B1ACF6B080019EC8A /* Main.storyboard in Resources */,
 				608D6A301ACF6B080019EC8A /* LaunchScreen.xib in Resources */,
 				608D6A2D1ACF6B080019EC8A /* Images.xcassets in Resources */,
@@ -214,6 +221,7 @@
 			files = (
 				608D6A281ACF6B080019EC8A /* ViewController.swift in Sources */,
 				608D6A261ACF6B080019EC8A /* AppDelegate.swift in Sources */,
+				608D6A4A1ACF888E0019EC8A /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

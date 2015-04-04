@@ -5,7 +5,7 @@ Time spent: [Write the number of hours you spend here]
 Completed:
 
 [+] Required: User can enter a bill amount, choose a tip percentage, and see the tip and total values.
-[-] Required: Settings page to change the default tip percentage.
+[+] Required: Settings page to change the default tip percentage. (both general settings UI and in-app UI)
 [-] Optional: UI animations
 [-] Optional: Remembering the bill amount across app restarts (if <10mins)
 [-] Optional: Using locale-specific currency and currency thousands separators.

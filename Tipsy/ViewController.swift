@@ -20,9 +20,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // clear fields
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
         billField.becomeFirstResponder()
+        
+        // get defaults
+        let defaults = NSUserDefaults.standardUserDefaults();
+        let defaultTipPercentageIndex = defaults.integerForKey("default_tip_percentage")
+        println(defaultTipPercentageIndex);
+        tipSegmentController.selectedSegmentIndex = defaultTipPercentageIndex;
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,10 +52,6 @@ class ViewController: UIViewController {
     
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
-    }
-    
-    @IBAction func onSettings(sender: AnyObject) {
-        
     }
 }
 
